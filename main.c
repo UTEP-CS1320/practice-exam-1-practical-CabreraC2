@@ -5,6 +5,8 @@
 *   Last modified by: Angel F. Garcia (2/19/2021)
 */
 #include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
 int main(void) {
   long x = 10;
@@ -25,14 +27,15 @@ int main(void) {
     int x, y;
     scanf("%d %d", &x, &y);
 
-    int x_digit = x / 10;
-    int y_digit = y / 10;
+    int x_digit = x % 10;
+    int y_digit = y % 10;
 
     if(x_digit == y_digit) {
-      print("TRUE");
+      printf("TRUE");
     }
-
-    print("FALSE");
+    else{
+      printf("FALSE");
+    }
     
     /* Problem 1 End */
   } else if(opt == 2) {
@@ -42,10 +45,34 @@ int main(void) {
      ***************************/
     char winner[5] = "7239";
     char ticket[5];
-
-    scanf("%s", ticket);
     
+    scanf("%s", ticket);    
+    
+      
     // TODO: Your P2 code goes here
+    if (strcmp(ticket, winner)==0){
+      printf("1st Prize!\n");
+    }
+    else if (
+      (winner[1] == ticket[1] && winner[2] == ticket[2] && winner[3] == ticket[3]) || 
+      (winner[0] == ticket[0] && winner[2] == ticket[2] && winner[3] == ticket[3]) || 
+      (winner[0] == ticket[0] && winner[1] == ticket[1] && winner[3] == ticket[3]) || 
+      (winner[0] == ticket[0] && winner[1] == ticket[1] && winner[2] == ticket[2]) ){
+      printf("2nd Prize!\n");
+    }
+     else if (
+       (winner[2] == ticket[2] && winner[3] == ticket[3]) ||
+       (winner[1] == ticket[1] && winner[3] == ticket[3]) ||
+       (winner[1] == ticket[1] && winner[2] == ticket[2]) ||
+       (winner[0] == ticket[0] && winner[3] == ticket[3]) ||
+       (winner[0] == ticket[0] && winner[2] == ticket[2]) ||
+       (winner[0] == ticket[0] && winner[1] == ticket[1])){
+      printf("3rd Prize!\n");
+    }
+    else{
+      printf("No Prize! Better luck next time!\n");
+
+    }
     
     /* Problem 2 End */
   } else if(opt == 3) {
@@ -56,8 +83,9 @@ int main(void) {
     char hex_in[5];
     scanf("%s", hex_in);
 
-    //TODO: Your P3 code goes here
+    if (hex_in > //TODO: Your P3 code goes here
     
+    printf("%", )
     /* Problem 3 End */
   }
 }
